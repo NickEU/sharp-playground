@@ -18,16 +18,10 @@ namespace guessing_game
                     gameChangeIncoming = false;
                     playerIsGuessing = !playerIsGuessing;
                 }
-                
-                if (playerIsGuessing)
-                {
-                    PlayerIsGuessing game = new PlayerIsGuessing();
-                    game.Start();
-                } else
-                {
-                    ComputerIsGuessing game = new ComputerIsGuessing();
-                    game.Start();
-                }
+
+                var game = playerIsGuessing ? (GameType)new PlayerIsGuessing() : new ComputerIsGuessing();
+                game.Start();
+
                 userWantsAnotherTry = QuitOrPlay();
             } while (userWantsAnotherTry);
         }

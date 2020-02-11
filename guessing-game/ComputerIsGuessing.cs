@@ -1,13 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace guessing_game
 {
-    class ComputerIsGuessing
+    class ComputerIsGuessing : GameType
     {
-        public void Start()
+        const int rangeMin = 1, rangeMax = 10;
+        public override void Start()
         {
+            Console.WriteLine($"Welcome! Please choose a number from {rangeMin} to {rangeMax}");
+            Console.WriteLine("I will be trying to guess the number! Wish me luck!");
             ComputerGuessingLoop();
         }
 
@@ -20,7 +21,7 @@ namespace guessing_game
                 gameOver = true;
             }
 
-            Console.WriteLine("Computer has won! Thanks for playing!");
+            Console.WriteLine("TEH SKYNET has won! Thanks for playing!");
         }
     }
 }

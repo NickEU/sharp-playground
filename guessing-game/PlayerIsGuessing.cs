@@ -1,16 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace guessing_game
 {
-    class PlayerIsGuessing
+    class PlayerIsGuessing : GameType
     {
         int userInputInt;
         const int rangeMin = 1, rangeMax = 10;
         int targetNumber;
 
-        public void Start() 
+        public override void Start() 
         {
             Console.WriteLine("Welcome! Try to guess my number!");
             targetNumber = Helpers.GetRandomNumber(rangeMin, rangeMax);
