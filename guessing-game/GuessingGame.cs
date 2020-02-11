@@ -4,10 +4,7 @@ namespace guessing_game
 {
     class GuessingGame
     {
-        int userInputInt;
         bool userWantsAnotherTry;
-        const int rangeMin = 1, rangeMax = 10;
-        int targetNumber;
         bool playerIsGuessing;
         bool gameChangeIncoming;
 
@@ -24,13 +21,12 @@ namespace guessing_game
                 
                 if (playerIsGuessing)
                 {
-                    Console.WriteLine("Welcome! Try to guess my number!");
-                    targetNumber = Helpers.GetRandomNumber(rangeMin, rangeMax);
-                    GetNumberFromUser();
-                    PlayerGuessingLoop();
+                    PlayerIsGuessing game = new PlayerIsGuessing();
+                    game.Start();
                 } else
                 {
-                    ComputerGuessingLoop();
+                    ComputerIsGuessing game = new ComputerIsGuessing();
+                    game.Start();
                 }
                 userWantsAnotherTry = QuitOrPlay();
             } while (userWantsAnotherTry);
@@ -38,6 +34,8 @@ namespace guessing_game
 
         private bool GetGameType()
         {
+            // TODO: implement the functionality of selecting a game type
+            // when first entering the program
             return true;
         }
 
@@ -52,69 +50,5 @@ namespace guessing_game
             }
             return input == "1";
         }
-
-
-
-        void GetNumberFromUser()
-        {
-            string userInputStr;
-            bool success;
-
-            do
-            {
-                Console.WriteLine("Enter a number from {0} to {1}. Enter 0 if you want to quit.", rangeMin, rangeMax);
-                userInputStr = Console.ReadLine();
-                if (userInputStr == "0")
-                {
-                    Environment.Exit(0);
-                }
-                success = Int32.TryParse(userInputStr, out userInputInt);
-
-                if (success && (userInputInt > rangeMax || userInputInt < rangeMin))
-                {
-                    success = false;
-                }
-            }
-            while (!success);
-        }
-
-        private void ComputerGuessingLoop()
-        {
-            bool gameOver = false;
-
-            while (!gameOver)
-            {
-                gameOver = true;
-            }
-
-            Console.WriteLine("Computer has won! Thanks for playing!");
-        }
-
-        void PlayerGuessingLoop()
-        {
-            bool gameOver = false;
-
-            while (!gameOver)
-            {
-                if (userInputInt != targetNumber)
-                {
-                    if (userInputInt > targetNumber)
-                    {
-                        Console.WriteLine("Lower...");
-                    } else
-                    {
-                        Console.WriteLine("Higher...");
-                    }
-                    GetNumberFromUser();
-                } else
-                {
-                    Console.WriteLine("Congrats! The answer is {0}", userInputInt);
-                    gameOver = true;
-                }
-
-            }
-
-        }
-
     }
 }
