@@ -8,22 +8,49 @@ namespace guessing_game
         bool userWantsAnotherTry;
         const int rangeMin = 1, rangeMax = 10;
         int targetNumber;
+        bool playerIsGuessing;
+        bool gameChangeIncoming;
 
         public void Start()
         {
+            playerIsGuessing = GetGameType();
             do
             {
-                targetNumber = Helpers.GetRandomNumber(rangeMin, rangeMax);
-                GetNumberFromUser();
-                GuessingLoop();
+                if (gameChangeIncoming)
+                {
+                    gameChangeIncoming = false;
+                    playerIsGuessing = !playerIsGuessing;
+                }
+                
+                if (playerIsGuessing)
+                {
+                    Console.WriteLine("Welcome! Try to guess my number!");
+                    targetNumber = Helpers.GetRandomNumber(rangeMin, rangeMax);
+                    GetNumberFromUser();
+                    PlayerGuessingLoop();
+                } else
+                {
+                    ComputerGuessingLoop();
+                }
                 userWantsAnotherTry = QuitOrPlay();
             } while (userWantsAnotherTry);
         }
 
+        private bool GetGameType()
+        {
+            return true;
+        }
+
         bool QuitOrPlay()
         {
-            Console.WriteLine("Enter 1 if you want to play again.");
-            return Console.ReadLine() == "1";
+            Console.WriteLine("Enter 1 if you want to play again. Enter 2 if you wanna play a different game.");
+            string input = Console.ReadLine();
+            if (input == "2")
+            {
+                gameChangeIncoming = true;
+                return true;
+            }
+            return input == "1";
         }
 
 
@@ -51,7 +78,19 @@ namespace guessing_game
             while (!success);
         }
 
-        void GuessingLoop()
+        private void ComputerGuessingLoop()
+        {
+            bool gameOver = false;
+
+            while (!gameOver)
+            {
+                gameOver = true;
+            }
+
+            Console.WriteLine("Computer has won! Thanks for playing!");
+        }
+
+        void PlayerGuessingLoop()
         {
             bool gameOver = false;
 
