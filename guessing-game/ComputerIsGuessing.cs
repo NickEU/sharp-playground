@@ -28,17 +28,17 @@ namespace guessing_game
                 }
                 int step = (int)Math.Ceiling(Math.Abs(cutoffPrev - cutoff) / 2d);
                 cutoffPrev = cutoff;
-                int nextCutoff;
+                int cutoffNext;
 
                 switch (userInputStr)
                 {
                     case "1":
-                        nextCutoff = cutoff - step;
-                        cutoff = nextCutoff < rangeMin ? rangeMin : nextCutoff;
+                        cutoffNext = cutoff - step;
+                        cutoff = cutoffNext < rangeMin ? rangeMin : cutoffNext;
                         break;
                     case "2":
-                        nextCutoff = cutoff + step;
-                        cutoff = nextCutoff > rangeMax ? rangeMax : nextCutoff;
+                        cutoffNext = cutoff + step;
+                        cutoff = cutoffNext > rangeMax ? rangeMax : cutoffNext;
                         break;
                     case "3":
                         gameOver = true;
