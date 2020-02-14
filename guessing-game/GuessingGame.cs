@@ -19,7 +19,7 @@ namespace guessing_game
                     playerIsGuessing = !playerIsGuessing;
                 }
 
-                var game = playerIsGuessing ? (GameType)new PlayerIsGuessing() : new ComputerIsGuessing();
+                var game = playerIsGuessing ? (GameBase)new PlayerIsGuessing() : new ComputerIsGuessing();
                 game.Start();
 
                 userWantsAnotherTry = QuitOrPlay();
@@ -30,7 +30,7 @@ namespace guessing_game
         {
             // TODO: implement the functionality of selecting a game type
             // when first entering the program
-            return true;
+            return false;
         }
 
         bool QuitOrPlay()
