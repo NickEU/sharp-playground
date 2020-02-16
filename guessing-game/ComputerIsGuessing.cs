@@ -14,7 +14,7 @@ namespace guessing_game
         void ComputerGuessingLoop()
         {
             bool gameOver = false;
-            int cutoff = rangeMax / 2;
+            int cutoff = (rangeMax + rangeMin) / 2;
             int cutoffPrev = rangeMax;
 
             while (!gameOver)

@@ -6,7 +6,7 @@ namespace guessing_game
 {
     class GameBase
     {
-        protected const int rangeMin = 1, rangeMax = 100;
+        protected const int rangeMin = 1, rangeMax = 10;
         protected int userInputInt;
 
         protected void GetNumberFromUser()

@@ -16,24 +16,17 @@ namespace guessing_game
         void PlayerGuessingLoop()
         {
             bool gameOver = false;
-
+ 
             while (!gameOver)
             {
                 if (userInputInt != targetNumber)
                 {
-                    if (userInputInt > targetNumber)
-                    {
-                        Console.WriteLine("Lower...");
-                    }
-                    else
-                    {
-                        Console.WriteLine("Higher...");
-                    }
+                    UI.ShowPlayerGuessResult(userInputInt, false, userInputInt > targetNumber);
                     GetNumberFromUser();
                 }
                 else
                 {
-                    Console.WriteLine("Congrats! The answer is {0}", userInputInt);
+                    UI.ShowPlayerGuessResult(userInputInt, true);
                     gameOver = true;
                 }
 

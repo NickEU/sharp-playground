@@ -30,7 +30,7 @@ namespace guessing_game
         {
             // TODO: implement the functionality of selecting a game type
             // when first entering the program
-            return false;
+            return true;
         }
 
         bool QuitOrPlay()
