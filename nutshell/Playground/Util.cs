@@ -6,7 +6,7 @@
 
         public static string PrettyHeader(string sectionName)
         {
-            return $"\n{Util.DecorHyphens} {sectionName} {Util.DecorHyphens}";
+            return $"\n\n{Util.DecorHyphens} {sectionName} {Util.DecorHyphens}\n";
         }
     }
 }

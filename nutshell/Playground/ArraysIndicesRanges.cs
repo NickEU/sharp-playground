@@ -12,7 +12,7 @@ namespace Playground
 
             // indices:
 
-            Console.WriteLine("\nGetting individual elements using indices:");
+            Console.WriteLine("Getting individual elements using indices:");
             Index last = ^1;
             Console.WriteLine($"Last one -> {names[last]}");
             Console.WriteLine($"Second to last -> {names[^2]}");

@@ -1,4 +1,7 @@
-﻿namespace Playground
+﻿using System;
+using System.Linq;
+
+namespace Playground
 {
     internal static class Program
     {
@@ -6,6 +9,7 @@
         {
             Strings.Examples();
             ArraysIndicesRanges.Examples();
+            ParamsRefOut.Examples();
         }
     }
 }
